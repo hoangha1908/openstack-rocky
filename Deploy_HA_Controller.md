@@ -140,7 +140,7 @@ EOF
 ### 5. Cài đặt Haproxy và Pacemaker
 - Bước 1: All Controller Node: Cấu hình haproxy
  * vim /etc/haproxy/haproxy.cfg
- * File cấu hình [Tham khảo](https://gitlab.hyperlogy.com/ISS-Hyperlogy/OpenStack/blob/master/Rocky/haproxy.conf)
+ * File cấu hình [Tham khảo](https://github.com/hoangha1908/openstack-rocky/blob/master/haproxy.conf)
 - Bước 2: All Controller Node
  *  echo "net.ipv4.ip_nonlocal_bind=1" >> /etc/sysctl.conf
  *  passwd hacluster
@@ -189,7 +189,7 @@ EOF
 - Bước 4: Controller 01: Tạo endpoint keystone
 
 ```
-keystone-manage bootstrap --bootstrap-password Hyper2019 \
+keystone-manage bootstrap --bootstrap-password Cloud2019 \
   --bootstrap-admin-url http://controller:5000/v3/ \
   --bootstrap-internal-url http://controller:5000/v3/ \
   --bootstrap-public-url http://controller:5000/v3/ \
@@ -216,7 +216,7 @@ echo "export OS_PROJECT_DOMAIN_NAME=Default" >> admin-openrc
 echo "export OS_USER_DOMAIN_NAME=Default" >> admin-openrc
 echo "export OS_PROJECT_NAME=admin" >> admin-openrc
 echo "export OS_USERNAME=admin" >> admin-openrc
-echo "export OS_PASSWORD=Hyper2019" >> admin-openrc
+echo "export OS_PASSWORD=Cloud2019" >> admin-openrc
 echo "export OS_AUTH_URL=http://controller:5000/v3" >> admin-openrc
 echo "export OS_IDENTITY_API_VERSION=3" >> admin-openrc
 echo "export OS_IMAGE_API_VERSION=2" >> admin-openrc
@@ -703,7 +703,7 @@ openstack endpoint create --region RegionOne volumev3 internal http://controller
 openstack endpoint create --region RegionOne volumev3 admin http://controller:8776/v3/%\(project_id\)s
 ```
 - Bước 3: Ceph Node: Một số bước tham khảo link dưới
-[Tham khảo](https://gitlab.hyperlogy.com/ISS-Hyperlogy/OpenStack/blob/master/Ocata_Script/Cinder_with_Ceph.md)
+[Tham khảo](https://github.com/hoangha1908/Openstack/blob/master/Cinder_with_Ceph.md)
 
 - Bước 4: Controller 01: Cấu hình Cinder
 ```
